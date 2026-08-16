@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>FitCoach - Konsultan Kebugaran & Nutrisi Harian</title>
+
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥗</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="fitcoach.css" />
+    <!-- Library Markdown & Sanitasi Keamanan XSS -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.6/dist/purify.min.js"></script>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="brand-logo" onclick="resetUrlHash(event)">🥗 FitCoach</a>
+            <ul class="nav-links">
+                <li><a href="#features">Fitur</a></li>
+                <li><a href="#benefits">Keunggulan</a></li>
+                <li><a href="#faq">Panduan</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button type="button" class="btn-theme-toggle" onclick="toggleTheme()"
+                    title="Ubah Mode Gelap/Terang">🌓</button>
+                <button type="button" class="btn btn-secondary" onclick="openBmiModal()">Kalkulator BMI</button>
+                <button type="button" class="btn btn-primary" onclick="toggleChat()">Konsultasi Sekarang</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="hero-badge">✨ Layanan Konsultasi Kebugaran Digital</div>
+                <h1 class="hero-title">
+                    Wujudkan Tubuh Sehat & Ideal Bersama <span>FitCoach</span>
+                </h1>
+                <p class="hero-desc">
+                    Konsultan cerdas untuk panduan menu gizi seimbang, strategi nutrisi harian, dan rekomendasi latihan
+                    fisik mandiri di rumah tanpa alat.
+                </p>
+                <div class="hero-actions">
+                    <button type="button" class="btn btn-primary" onclick="toggleChat()">
+                        Buka Chat Konsultasi →
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="openBmiModal()">
+                        Hitung BMI & Kalori
+                    </button>
+                </div>
+            </div>
+
+            <div class="hero-showcase">
+                <div class="showcase-card">
+                    <div class="card-icon">🥑</div>
+                    <h3>Menu Gizi Seimbang</h3>
+                    <p>Takaran kalori harian yang disesuaikan dengan aktivitas Anda.</p>
+                </div>
+                <div class="showcase-card">
+                    <div class="card-icon">🏃</div>
+                    <h3>Latihan Tanpa Alat</h3>
+                    <p>Gerakan aman dan efektif untuk dilakukan mandiri di rumah.</p>
+                </div>
+                <div class="showcase-card">
+                    <div class="card-icon">💧</div>
+                    <h3>Kebutuhan Hidrasi</h3>
+                    <p>Optimalkan metabolisme tubuh dengan asupan cairan yang tepat.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Stats Section -->
+    <section class="stats-section" id="benefits">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>24/7</h3>
+                    <p>Akses Konsultasi Kapan Saja</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>Tanpa Alat Berat di Rumah</p>
+                </div>
+                <div class="stat-item">
+                    <h3>Praktis</h3>
+                    <p>Panduan Sederhana & Tepat</p>
+                </div>
+                <div class="stat-item">
+                    <h3>Instan</h3>
+                    <p>Respon Cepat Real-time</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-tag">Fitur Unggulan</p>
+                <h2 class="section-title">Solusi Kebugaran yang Disesuaikan Untuk Anda</h2>
+                <p style="color: var(--muted)">Dapatkan rekomendasi yang terstruktur, berbasis pola hidup sehat, dan
+                    mudah dipraktikkan.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🥗</div>
+                    <h3>Perencana Menu Sehat</h3>
+                    <p>Rekomendasi takaran makanan sehat lengkap dari sarapan, makan siang, makan malam, hingga camilan
+                        bergizi sesuai target Anda.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏃</div>
+                    <h3>Workout Rumahan</h3>
+                    <p>Panduan latihan fisik 10–20 menit tanpa perlu peralatan gym. Aman, efektif, dan fleksibel untuk
+                        rutinitas harian.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💧</div>
+                    <h3>Edukasi Pola Hidup</h3>
+                    <p>Dapatkan penjelasan ilmiah tentang pentingnya hidrasi, waktu istirahat yang berkualitas, dan
+                        menjaga vitalitas tubuh.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="faq">
+        <div class="container">
+            <p>&copy; 2026 FitCoach. Seluruh hak cipta dilindungi.</p>
+        </div>
+    </footer>
+
+    <!-- ================= FLOATING CHATBOT WIDGET ================= -->
+    <button id="chat-toggle-btn" class="chat-toggle-btn" onclick="toggleChat()" aria-label="Buka Chat">
+        <span class="bubble-icon">💬</span>
+        <span class="badge-dot"></span>
+    </button>
+
+    <div id="chat-widget-container" class="chat-widget-container">
+        <!-- Panel Drawer Riwayat Chat -->
+        <aside id="chat-history-sidebar" class="chat-history-sidebar">
+            <div class="sidebar-header">
+                <h4>Riwayat Sesi</h4>
+                <button type="button" class="icon-btn" onclick="toggleHistorySidebar()">✕</button>
+            </div>
+
+            <!-- Kotak Pencarian Riwayat Sesi -->
+            <div class="history-search-wrapper">
+                <input type="text" id="history-search-input" placeholder="Cari sesi percakapan..."
+                    oninput="handleSearchHistory(event)" />
+            </div>
+
+            <button type="button" class="btn-new-chat" onclick="startNewSession()">
+                + Konsultasi Baru
+            </button>
+
+            <!-- Daftar Sesi Chat -->
+            <div id="history-list" class="history-list"></div>
+
+            <!-- Tombol Hapus Semua Riwayat -->
+            <div class="sidebar-footer">
+                <button type="button" class="btn-clear-all" onclick="clearAllSessions()">
+                    🗑️ Hapus Semua Riwayat
+                </button>
+            </div>
+        </aside>
+
+        <div class="chat-widget">
+            <!-- Widget Header -->
+            <div class="widget-header">
+                <button type="button" class="icon-btn" onclick="toggleHistorySidebar()" title="Lihat Riwayat Chat">
+                    ☰
+                </button>
+                <div class="widget-avatar">🥗</div>
+                <div class="widget-info">
+                    <h3>FitCoach</h3>
+                    <p><span class="status-dot"></span> Online & Siap Menjawab</p>
+                </div>
+                <button type="button" class="icon-btn" onclick="openBmiModal()" title="Kalkulator BMI & Kalori">
+                    📊
+                </button>
+                <button type="button" class="icon-btn" onclick="toggleTheme()" title="Ubah Tema">
+                    🌓
+                </button>
+                <button type="button" class="icon-btn" onclick="startNewSession()" title="Mulai Obrolan Baru">
+                    📝
+                </button>
+                <button type="button" class="close-chat-btn" onclick="toggleChat()" title="Tutup Chat">
+                    ✕
+                </button>
+            </div>
+
+            <!-- Quick Action Buttons Dengan Tombol Navigasi Geser -->
+            <div class="quick-prompts-wrapper">
+                <button type="button" class="chip-nav-btn left" onclick="scrollChips(-120)">‹</button>
+                <div id="quick-prompts" class="quick-prompts">
+                    <button type="button" class="quick-chip"
+                        onclick="handleQuickAction('Buatkan menu makan sehat 1500 kalori lengkap untuk hari ini')">
+                        🥗 Menu 1500 Kalori
+                    </button>
+                    <button type="button" class="quick-chip"
+                        onclick="handleQuickAction('Rekomendasi latihan fisik 15 menit di rumah tanpa alat untuk pemula')">
+                        🏃 Latihan 15 Menit
+                    </button>
+                    <button type="button" class="quick-chip"
+                        onclick="handleQuickAction('Beri 5 ide camilan sehat tinggi protein yang praktis')">
+                        🥑 Camilan Sehat
+                    </button>
+                    <button type="button" class="quick-chip"
+                        onclick="handleQuickAction('Berapa kebutuhan air putih harian yang ideal?')">
+                        💧 Tips Hidrasi
+                    </button>
+                </div>
+                <button type="button" class="chip-nav-btn right" onclick="scrollChips(120)">›</button>
+            </div>
+
+            <!-- Chat Box Area -->
+            <div id="chat-box" class="chat-box"></div>
+
+            <!-- Status Perekam Suara -->
+            <div id="voice-recording-indicator" class="voice-recording-indicator" style="display: none;">
+                <span class="pulse-recording"></span> Mendengarkan suara Anda... (Bicara sekarang)
+            </div>
+
+            <!-- Lampiran Berkas Preview -->
+            <div id="file-preview-bar" class="file-preview-bar" style="display: none">
+                <span id="file-name-label">lampiran.jpg</span>
+                <button type="button" onclick="cancelAttachment()">✕</button>
+            </div>
+
+            <!-- Input Form Multimodal & Suara -->
+            <form id="chat-form" class="chat-form">
+                <input type="file" id="file-input" accept="image/*,video/*,audio/*,.pdf,.doc,.docx,.txt"
+                    style="display: none" onchange="handleFileSelected(event)" />
+
+                <button type="button" class="tool-btn" onclick="document.getElementById('file-input').click()"
+                    title="Lampirkan Gambar, Dokumen, Audio">
+                    📎
+                </button>
+
+                <!-- Tombol Mic (Voice-to-Text) -->
+                <button type="button" id="voice-btn" class="tool-btn" onclick="toggleVoiceRecognition()"
+                    title="Ketik dengan Suara">
+                    🎙️
+                </button>
+
+                <input type="text" id="user-input" placeholder="Tulis pesan atau bicara..." autocomplete="off" />
+
+                <button type="submit" id="send-btn" aria-label="Kirim Pesan">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ================= MODAL KALKULATOR BMI & TDEE ================= -->
+    <div id="bmi-modal" class="custom-modal-overlay">
+        <div class="custom-modal-card bmi-modal-card">
+            <div class="custom-modal-header">
+                <h3>📊 Kalkulator BMI & Kalori (TDEE)</h3>
+                <button type="button" class="icon-btn" onclick="closeBmiModal()">✕</button>
+            </div>
+            <form id="bmi-form" onsubmit="handleCalculateBmi(event)" class="bmi-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Berat Badan (kg)</label>
+                        <input type="number" id="bmi-weight" placeholder="Contoh: 65" min="20" max="300" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Tinggi Badan (cm)</label>
+                        <input type="number" id="bmi-height" placeholder="Contoh: 170" min="50" max="250" required />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Usia (tahun)</label>
+                        <input type="number" id="bmi-age" placeholder="Contoh: 24" min="10" max="100" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Jenis Kelamin</label>
+                        <select id="bmi-gender">
+                            <option value="male">Pria</option>
+                            <option value="female">Wanita</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Aktivitas Fisik Harian</label>
+                    <select id="bmi-activity">
+                        <option value="1.2">Jarang Berolahraga (Sedentary)</option>
+                        <option value="1.375">Ringan (1-3 hari/minggu)</option>
+                        <option value="1.55">Sedang (3-5 hari/minggu)</option>
+                        <option value="1.725">Aktif (6-7 hari/minggu)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">Hitung & Dapatkan
+                    Rekomendasi</button>
+            </form>
+            <div id="bmi-result-area" class="bmi-result-area" style="display: none;">
+                <div class="bmi-badge-box">
+                    <p>Skor BMI: <strong id="bmi-score">-</strong> (<span id="bmi-category">-</span>)</p>
+                    <p>Estimasi Kebutuhan Kalori Harian: <strong id="tdee-score">-</strong> kkal</p>
+                </div>
+                <button type="button" class="btn btn-primary btn-sm" onclick="sendBmiContextToChat()">
+                    💬 Konsultasikan Hasil Ini ke Chat
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= CUSTOM CONFIRMATION MODAL ================= -->
+    <div id="custom-confirm-modal" class="custom-modal-overlay">
+        <div class="custom-modal-card">
+            <div class="custom-modal-icon">⚠️</div>
+            <h3 id="modal-title">Konfirmasi</h3>
+            <p id="modal-desc">Apakah Anda yakin ingin melanjutkan tindakan ini?</p>
+            <div class="custom-modal-actions">
+                <button type="button" id="modal-btn-cancel" class="btn btn-secondary">Batal</button>
+                <button type="button" id="modal-btn-confirm" class="btn btn-primary">Ya, Lanjutkan</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="fitcoach.js"></script>
+</body>
+
+</html>
