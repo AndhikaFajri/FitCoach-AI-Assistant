@@ -81,7 +81,7 @@ Atau:
 nodemon index.js
 ```
 
-### 4. Buka frontend
+### 5. Buka frontend
 
 Buka file `client/fitcoach.html` di browser.
 
