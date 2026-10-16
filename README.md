@@ -1,4 +1,4 @@
-# FitCoach AI
+# FitCoach AI Assistant
 
 Aplikasi chatbot kesehatan berbasis web yang membantu pengguna dalam mengelola gaya hidup sehat melalui konsultasi nutrisi, latihan fisik, dan perencanaan pola makan harian.
 
